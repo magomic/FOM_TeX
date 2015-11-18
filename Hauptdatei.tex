@@ -1,0 +1,195 @@
+%-------------------------------------------------------------------------------------------------
+% Template Version 1.0.4							27.02.2015									(c) Erhan Tuna
+% 1.0.1		einfache Ergänzungen und Korrekturen (begin{Citation}, etc.), FOM Anpassungen am Titelblatt
+% 1.0.2		\Zitat{}
+% 1.0.3		minipage im Environment graybox
+% 1.0.4		Schriftarten eingefügt
+% Achtung! in der Datei dinat.bst wurde die Fkt. push.ua von "u.\,a." in "et~al." geändert ! - kein Versionsinkrement nötig - 
+% 1.0.5		\dcite für direkte Zitate ohne "Vgl."
+%-------------------------------------------------------------------------------------------------
+
+% Optionen: coloredlinks, noheadrule, nochapter, moderntitle, classictitle, lockflag, affidavit
+\documentclass[classictitle,affidavit]{fomsdt}
+
+% WENN Inhaltsverzeichnis, Abkürzungsverzeichnis, Abbildungsverzeichnis, Tabellenverzeichnis AM Dokumentenanfang stehen sollen DANN
+ \usepackage[abbreviation,toctotoc]{fomdss} % optionen: toctotoc (TOC ins TOC aufnehmen), nopagebreak (Seitenumbruch nach Verzeichnissen), abbreviation (Abkürzungsverzeichnis), abbrevrefpage(Ref zur Seite)
+%-------------------------------------------------------------------------------------------------
+% WENN Inhaltsverzeichnis, Abkürzungsverzeichnis, Abbildungsverzeichnis, Tabellenverzeichnis AM Dokumentenende stehen sollen DANN
+ \usepackage[glossary,index]{fomdes} % optionen: listings (Codelisting etc), glossary, glossrefpage, nobibliography, index, nopagebreak
+%-------------------------------------------------------------------------------------------------
+% WENN Absätze, Zitate (besondere) DANN
+ \usepackage{fompar} % keine optionen
+%-------------------------------------------------------------------------------------------------
+% WENN Abbildungen, Tabellen, Codelistings, Graphics DANN
+ \usepackage{fomfod}
+%-------------------------------------------------------------------------------------------------
+% WENN NormDatum, spez. Symbole (z.B. Copyright etc) DANN
+% \usepackage{fomfod}
+%-------------------------------------------------------------------------------------------------
+% Das Paket fomidx steckt in der Dokumentenklasse (Ausnahme!) da es den Regeln von LaTeX geschuldet ist, gehört aber zum Paket Dokumentenende
+%-------------------------------------------------------------------------------------------------
+\usepackage{xstring} % für macro \fcite bzw. \dcite um letztes Zeichen zu extrahieren 
+%-------------------------------------------------------------------------------------------------
+% SCHRIFTARTEN------------------------------------------------------------------------------------
+%\usepackage{bookman}
+ %\usepackage{lmodern}
+ %\usepackage{mathpazo}
+ %\usepackage{kpfonts}
+ %\usepackage{mathptmx}
+ %\usepackage{times,mtpro2}
+ %\usepackage{stix}
+ %\usepackage{txfonts}
+ %\usepackage{newtxtext,newtxmath}
+ %\usepackage{libertine} \usepackage[libertine]{newtxmath}
+%-------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------
+% INHALTSVERZEICHNIS EIGENSCHAFTEN ---------------------------------------------------------------
+%\setcounter{tocdepth}{5} % damit \paragraph und \subparagraph in das Inhaltsverzeichnis mit aufgenommen werden
+%\setcounter{secnumdepth}{5} % damit \paragraph und \subparagraph als 4. und 5. Ebene gelten
+%-------------------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+%-TITELSEITE--------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------
+	% WENN documentclass:classictitle
+	\Institute{Hochschule für\\ Ökonomie \& Management Essen \\ \large Standort Frankfurt am Main} 	% Name der Hochschule
+	\Course{Berufsbegleitender Studiengang zum Bachelor of Science}			% optional : z.B. berufsbegleitender Studiengang
+	\Semester{4. Semester}							% 
+	\Subject{Seminararbeit in Modul}							% z.B. Diplomarbeit zum Thema
+	\Title{Titel: Subtitel}	% Thema der Arbeit
+	\Professor{Dozent}						% Dozent
+	\Student{Erhan Tuna}		
+	%\Matrikel{ab321194}
+	\Date{\today}										% pflicht: standard = \today
+	%-------------------------------------------------------------------------------------------------
+	% + WENN documentclass:moderntitle
+	\General{Hausarbeit} % Diplomarbeit, Studienarbeit, Hausarbeit, etc..
+	%-------------------------------------------------------------------------------------------------
+	% WENN documentclass:lockflag
+	%\LockflagContent[]{fom} % fom steht für Standard-FOM-Formulierung; sig für Ort, Datum, Unterschrift
+	%-------------------------------------------------------------------------------------------------
+	% WENN documentclass:affidavit
+	\AffidavitContent[sig]{std} % std ist die Standard-Formulierung
+	%-------------------------------------------------------------------------------------------------
+	% WENN compiler=pdflatex DANN (optional)
+	\PDFTitle{Titel: Subtitel}
+	\PDFAuthor{Erhan Tuna}
+	\PDFSubject{Seminararbeit}
+	\PDFProducer{MikTeX}
+	%-------------------------------------------------------------------------------------------------
+	% Erstellt Titelseite, Sperrvermerk, Eid. Versicherung
+	\maketitle
+%---------------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
+
+%-VERZEICHNISSE-------------------------------------------------------------------------------------
+\PrintContents % TOC
+\PrintAbbrev	% Abkürzungsverzeichnis
+\PrintFigures	% Abbildungsverzeichnis
+\PrintTables	% Tabellenverzeichnis
+%---------------------------------------------------------------------------------------------------
+
+
+%-EIGENE MAKROS--------------------------------------------------------------------------------------
+% #1: Bookname, #2: Seitenangabe
+\newcommand{\dcite}[2]{\footnote{\raggedright{\citeauthor{#1}~(\citeyear{#1}),~S.~#2.}}} % bei direkten Zitaten %\ifthenelse{\equal{\StrRight{#2}{1}}{.}}{}{.}
+\newcommand{\fcite}[2]{\footnote{\raggedright{Vgl. \citeauthor{#1}~(\citeyear{#1}),~S.~#2.}}} % bei indirekten Zitaten
+%----------------------------------------------------------------------------------------------------
+% zentrierte Zitate vereinfachen
+% Definieren von else then
+%\def\ifemptyarg#1{%
+  %\if\relax\detokenize{#1}\relax % H. Oberdiek
+    %\expandafter\@firstoftwo
+  %\else
+    %\expandafter\@secondoftwo
+  %\fi}
+
+%\def\Zitat#1
+%{	
+	%\begin{Citation}[\parskip]{12mm}{15mm}
+	%\textit{\glqq #1\grqq}
+	%\end{Citation}
+%}
+%\ifemptyarg{#2}{}{\flushright{#2}}
+%\newcommand{\Zitat}{1} % Diese Version geht aus Compilertechnischen Gründen nicht, siehe ftp://ftp.ams.org/pub/tex/amslatex/math/technote.pdf (Punkt 6) und http://www.golatex.de/wiki/%5Cdef
+%{
+	%\begin{Citation}[\parskip]{12mm}{15mm}
+	%\textit{\glqq #1 \grqq}
+	%\end{Citation}
+%}
+\newcommand{\Zitat}[2] % keine Verwendung von fcite in 2. Argument möglich, kein Anhängen von fcite an das Zitat möglich (neue zeile)
+{						% Einzige Besonderheit von \Zitat ist der Urheber/Autor rechts vom Zitat
+  \begin{list}{}
+   {
+		\setlength{\partopsep}{\parskip}%
+		\setlength{\topsep}{0pt}%
+		\setlength{\parsep}{\parskip}%
+		\setlength{\itemsep}{0pt}%
+		\setlength{\listparindent}{0pt}%
+		\setlength{\labelwidth}{0pt}%
+		\setlength{\labelsep}{0pt}%
+		\setlength{\leftmargin}{12mm}%
+		\setlength{\rightmargin}{15mm}%
+	}
+	\item \textit{\glqq #1\grqq}
+	\ifthenelse{\equal{#2}{}}{}{\flushright{\tiny- #2 -}} % {condition}{true}{false}
+  \end{list}
+}
+%----------------------------------------------------------------------------------------------------
+% Pfade zu Graphiken setzten.
+%----------------------------------------------------------------------------------------------------
+\graphicspath{{./img/}}  % Pfade bekannt geben (ACHTUNG: Syntax beachten)
+%----------------------------------------------------------------------------------------------------
+% Literaturverzeichnis et al. statt u.a.
+%\DefineBibliographyStrings{ngerman}{andothers={et\addabbrvspace al\adddot}}      % et al. statt u.a.-> funzt nicht mit dinat
+%----------------------------------------------------------------------------------------------------
+% Für Hervorhebungen, Zitate und Kästen(?) mit Text, siehe folgende Makros
+%\Remark[Einzug][Abstand]{\bf label}{text}	% linksbündiges label
+%\Item[Einzug][Abstand]{\bf label}{text}	% rechtsbündiges label
+%\begin{Citation}[soll optional, ist aber pflicht]{pflicht}{pflicht} % Abstand links und rechts; Case-sensitive
+%\end{Citation}
+% fompar:\Description für Überschriften, die nicht ins TOC sollen (keine Verwendung von sub/paragraph)
+%----------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------
+% Box (minipage) mit farbigem Hintergund (RFU)
+%-----------------------------------------------------------
+\makeatletter
+\newlength{\graybox@border}
+%\definecolor{graybox@color}{RGB}{241,241,241}% light gray backgroud
+\definecolor{graybox@color}{RGB}{232,232,232}% light gray backgroud
+\newenvironment{graybox}[1][0pt]{%
+  \setlength{\graybox@border}{#1}%            save border size
+  \begin{lrbox}{\@tempboxa}%                  begin "lrbox"
+    \begin{minipage}{\linewidth}%             begin outer "minipage"
+    \addtolength{\linewidth}{-2\graybox@border}% left/right border
+    \vspace{\graybox@border}\centering%       leading border
+    \begin{minipage}{\linewidth}%             begin inner "minipage"
+}{%
+  \end{minipage}%                             end inner "minipage"
+  \vspace{\graybox@border}%                   following border
+  \end{minipage}%                             end outer "minipage"
+  \end{lrbox}%                                end "lrbox"
+  \colorbox{graybox@color}{\usebox{\@tempboxa}}% print box data!
+}\makeatother%
+%----------------------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------------------
+
+\input{Einleitung}
+
+\input{Hauptteil}
+
+\input{Fazit}
+
+
+
+
+%-DOKUMENT ENDE (fomdes)----------------------------------------------------------------------------
+%\PrintListings % Codelistings
+\PrintGlossary{Glossar}	% Glossar{Dateiname ohne Endung} % optionen: all
+\PrintBibliography{Literatur} % Literaturverzeichnis{Dateiname ohne Endung}
+\PrintIndex[Index][double]		% Stichwortverzeichnis % optionen: single, double, triple (=Anzahl der Spalten)
+%---------------------------------------------------------------------------------------------------
+
+\end{document}
