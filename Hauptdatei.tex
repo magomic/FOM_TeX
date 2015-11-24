@@ -1,18 +1,19 @@
 %-------------------------------------------------------------------------------------------------
-% Template Version 1.0.4							27.02.2015									(c) Erhan Tuna
+% Template Version 1.0.4							27.02.2015
 % 1.0.1		einfache Ergänzungen und Korrekturen (begin{Citation}, etc.), FOM Anpassungen am Titelblatt
 % 1.0.2		\Zitat{}
 % 1.0.3		minipage im Environment graybox
 % 1.0.4		Schriftarten eingefügt
 % Achtung! in der Datei dinat.bst wurde die Fkt. push.ua von "u.\,a." in "et~al." geändert ! - kein Versionsinkrement nötig - 
 % 1.0.5		\dcite für direkte Zitate ohne "Vgl."
+% 1.0.6		Römische Verzeichnisnummerierung, Aufbau der Arbeit, Ergänzung in Kapiteln, Verzeichnisbezeichnungen korrigiert, Tiefe ToC
 %-------------------------------------------------------------------------------------------------
 
 % Optionen: coloredlinks, noheadrule, nochapter, moderntitle, classictitle, lockflag, affidavit
 \documentclass[classictitle,affidavit]{fomsdt}
 
 % WENN Inhaltsverzeichnis, Abkürzungsverzeichnis, Abbildungsverzeichnis, Tabellenverzeichnis AM Dokumentenanfang stehen sollen DANN
- \usepackage[abbreviation,toctotoc]{fomdss} % optionen: toctotoc (TOC ins TOC aufnehmen), nopagebreak (Seitenumbruch nach Verzeichnissen), abbreviation (Abkürzungsverzeichnis), abbrevrefpage(Ref zur Seite)
+ \usepackage[abbreviation]{fomdss} % optionen: toctotoc (TOC ins TOC aufnehmen), nopagebreak (Seitenumbruch nach Verzeichnissen), abbreviation (Abkürzungsverzeichnis), abbrevrefpage(Ref zur Seite)
 %-------------------------------------------------------------------------------------------------
 % WENN Inhaltsverzeichnis, Abkürzungsverzeichnis, Abbildungsverzeichnis, Tabellenverzeichnis AM Dokumentenende stehen sollen DANN
  \usepackage[glossary,index]{fomdes} % optionen: listings (Codelisting etc), glossary, glossrefpage, nobibliography, index, nopagebreak
@@ -54,12 +55,12 @@
 %-TITELSEITE--------------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------------------------
 	% WENN documentclass:classictitle
-	\Institute{Hochschule für\\ Ökonomie \& Management Essen \\ \large Standort Frankfurt am Main} 	% Name der Hochschule
+	\Institute{Hochschule für\\ Ökonomie \& Management Essen} 	% Name der Hochschule
 	\Course{Berufsbegleitender Studiengang zum Bachelor of Science}			% optional : z.B. berufsbegleitender Studiengang
-	\Semester{4. Semester}							% 
+	\Semester{X. Semester}							% 
 	\Subject{Seminararbeit in Modul}							% z.B. Diplomarbeit zum Thema
 	\Title{Titel: Subtitel}	% Thema der Arbeit
-	\Professor{Dozent}						% Dozent
+	\Professor{Dozent*in}						% Dozent
 	\Student{Erhan Tuna}		
 	%\Matrikel{ab321194}
 	\Date{\today}										% pflicht: standard = \today
@@ -71,12 +72,12 @@
 	%\LockflagContent[]{fom} % fom steht für Standard-FOM-Formulierung; sig für Ort, Datum, Unterschrift
 	%-------------------------------------------------------------------------------------------------
 	% WENN documentclass:affidavit
-	\AffidavitContent[sig]{std} % std ist die Standard-Formulierung
+	\AffidavitContent[]{std} % std ist die Standard-Formulierung
 	%-------------------------------------------------------------------------------------------------
 	% WENN compiler=pdflatex DANN (optional)
 	\PDFTitle{Titel: Subtitel}
 	\PDFAuthor{Erhan Tuna}
-	\PDFSubject{Seminararbeit}
+	\PDFSubject{...arbeit}
 	\PDFProducer{MikTeX}
 	%-------------------------------------------------------------------------------------------------
 	% Erstellt Titelseite, Sperrvermerk, Eid. Versicherung
@@ -84,15 +85,28 @@
 %---------------------------------------------------------------------------------------------------
 %---------------------------------------------------------------------------------------------------
 
+%-----------------------------------------------------------
+% Beginne mit den Verzeichnissen
+%-----------------------------------------------------------
+\pagenumbering{Roman} % Roman = I,II,.. und roman = i,ii,... 
+
+
 %-VERZEICHNISSE-------------------------------------------------------------------------------------
-\PrintContents % TOC
-\PrintAbbrev	% Abkürzungsverzeichnis
-\PrintFigures	% Abbildungsverzeichnis
-\PrintTables	% Tabellenverzeichnis
+\PrintContents[Inhaltsverzeichnis] % TOC
+\PrintAbbrev[Abkürzungsverzeichnis]	% Abkürzungsverzeichnis
+\PrintFigures[Abbildungsverzeichnis]	% Abbildungsverzeichnis
+\PrintTables[Tabellenverzeichnis]	% Tabellenverzeichnis
 %---------------------------------------------------------------------------------------------------
 
 
-%-EIGENE MAKROS--------------------------------------------------------------------------------------
+\pagenumbering{arabic} % Arabisch 1,2,... (Beginned bei 1)
+%\onehalfspacing       % Ab hier Zeilenabstand ändern (1.5-zeilig)
+%\setstretch{1.2}      % Ab hier Zeilenabstand ändern (1.2-zeilig)
+
+
+%---------------------------------------------------------------------------------------------------
+%-EIGENE MAKROS
+%---------------------------------------------------------------------------------------------------
 % #1: Bookname, #2: Seitenangabe
 \newcommand{\dcite}[2]{\footnote{\raggedright{\citeauthor{#1}~(\citeyear{#1}),~S.~#2.}}} % bei direkten Zitaten %\ifthenelse{\equal{\StrRight{#2}{1}}{.}}{}{.}
 \newcommand{\fcite}[2]{\footnote{\raggedright{Vgl. \citeauthor{#1}~(\citeyear{#1}),~S.~#2.}}} % bei indirekten Zitaten
@@ -137,6 +151,7 @@
 	\ifthenelse{\equal{#2}{}}{}{\flushright{\tiny- #2 -}} % {condition}{true}{false}
   \end{list}
 }
+
 %----------------------------------------------------------------------------------------------------
 % Pfade zu Graphiken setzten.
 %----------------------------------------------------------------------------------------------------
@@ -152,6 +167,7 @@
 %\end{Citation}
 % fompar:\Description für Überschriften, die nicht ins TOC sollen (keine Verwendung von sub/paragraph)
 %----------------------------------------------------------------------------------------------------
+
 %-----------------------------------------------------------
 % Box (minipage) mit farbigem Hintergund (RFU)
 %-----------------------------------------------------------
@@ -176,6 +192,7 @@
 %----------------------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------------------
 
+
 \input{Einleitung}
 
 \input{Hauptteil}
@@ -183,13 +200,13 @@
 \input{Fazit}
 
 
-
-
-%-DOKUMENT ENDE (fomdes)----------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
+%-DOKUMENT ENDE (fomdes)
+%---------------------------------------------------------------------------------------------------
 %\PrintListings % Codelistings
-\PrintGlossary{Glossar}	% Glossar{Dateiname ohne Endung} % optionen: all
-\PrintBibliography{Literatur} % Literaturverzeichnis{Dateiname ohne Endung}
-\PrintIndex[Index][double]		% Stichwortverzeichnis % optionen: single, double, triple (=Anzahl der Spalten)
+%\PrintGlossary{Glossar}	% Glossar{Dateiname ohne Endung} % optionen: all
+\PrintBibliography[Literaturverzeichnis]{Literatur} % Literaturverzeichnis{Dateiname ohne Endung}
+%\PrintIndex[Index][double]		% Stichwortverzeichnis % optionen: single, double, triple (=Anzahl der Spalten)
 %---------------------------------------------------------------------------------------------------
 
 \end{document}
