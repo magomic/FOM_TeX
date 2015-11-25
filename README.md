@@ -1,2 +1,2 @@
 # FOM_TeX
-LaTeX-Vorlage für FOM
+LaTeX-Vorlage fuer FOM
