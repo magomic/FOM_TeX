@@ -1,11 +1,9 @@
 % LEBENDIGES LITERATURVERZEICHNIS
-% Stand: 23.02.2015		Version: 1.0.1
-% 1.0.1		ebenda (ebd.) Regel eingefügt und mehrere Quellen für eine Aussage, Zitierfähige Quellen
+% Stand: 10.12.2015		Version: 1.0.1 Link für Literaturtypen ergänzt, goo.gl link shortener eingefügt
+% Stand: 23.02.2015		Version: 1.0.1 ebenda (ebd.) Regel eingefügt und mehrere Quellen für eine Aussage, Zitierfähige Quellen
 %-------------------------------------------------------------------------------------------------
 % Literaturverzeichnis ist nach dem Familiennamen des Verfassers zu sortieren - aufsteigend
 % Mehrere Werke eines Verfassers sind in chronologischer Reihenfolge aufzunehmen - beginnend mit der frühesten Publikation
-
-% siehe hierzu Tabelle Literaturtypen in http://de.wikipedia.org/wiki/BibTeX
 
 % ACHTUNG! innerhalb des BOOK-Tags DARF KEIN Kommentar stehen 
 % Es dürfen KEINE Schlüsselwörter in den Kommentaren verwendet werden
@@ -17,11 +15,17 @@
 % ab dem 2. Mal(d.h. beim 2. Mal; siehe auch ab 12 Jahren = mind. 12) Zitieren von gleicher Seite, kann "ebd., S. XY" verwendet werden
 % Mehrere Quellen (Autoren) für eine Aussage, können via Strichpunkt voneinander getrennt in der Fußnote angegeben werden
 %-LITERATURVERZEICHNIS-################################################################################
-% Monographien: 	Familienname, V. (Erscheinungsjahr): Vollständiger_Titel, [Diss. ]2. Aufl., Verlagsort Erscheinungsjahr
-% Ausfätze/Artikel: Familienname, V. (Erscheinungsjahr): Vollständiger_Titel in: Herausgeber (Hrsg.), Titel_des_Sammelwerks, 2. Aufl.,[ Bd,]Ort Jahr, S. von-bis
+% siehe hierzu: https://de.wikipedia.org/wiki/BibTeX Abschnitt Literaturtypen
+
+% Monographien: 	Familienname, V. (Erscheinungsjahr): Vollständiger_Titel, [Diss. ]2. Auflage, Verlagsort Erscheinungsjahr
+
+% Ausfätze/Artikel: Familienname, V. (Erscheinungsjahr): Vollständiger_Titel in: Herausgeber (Hrsg.), Titel_des_Sammelwerks, 2. Auflage,[ Bd,]Ort Jahr, S. von-bis
+
 % Zeitungsartikel:  Familienname, V. (Erscheinungsjahr): Vollständiger_Titel, Vollständiger_Titel_des_Artikels in: Name_der_Zeitung, 45. Jg., Nr. Heftnr, S. von-bis
+
 % Internetquelle:	Familienname, V./ggf. Anbieter (Erscheinungsjahr): Titel. URL:http://www.url.de, Stand Datum.
-% Hyperlinks von Internetquellen wurden gekürzt mit: http://www.hamburg.de/link/
+
+% Hyperlinks von Internetquellen wurden gekürzt, z. B. mit http://www.hamburg.de/link/ oder https://goo.gl/
 %######################################################################################################
 
 % Copy&Paste-Template
@@ -31,7 +35,7 @@
 	author = {Vorname Nachname and Vorname2 Nachname2},
 	title = {titel},
 	publisher = {Verlag, Ort},
-	edition= {x. Aufl. Bd. II},
+	edition= {x. Auflage Bd. II},
 	year = {2012} }
 	% OPTIONAL
 	%volume= {} ,
@@ -144,7 +148,7 @@
 	author = {Hendrickson, E.},
 	title = {Explore It!},
 	publisher = {dpunkt.verlag, Heidelberg},
-	edition= {1. Aufl.},
+	edition= {1. Auflage},
 	year = {2014} }
 
 @BOOK{ohrmann,
@@ -173,7 +177,7 @@
 	author = {Schäfer, J.},
 	title = {Lob des Irrtums: Warum es ohne Fehler keinen Fortschritt gibt},
 	publisher = {Bertelsmann, München},
-	edition= {1. Aufl.},
+	edition= {1. Auflage},
 	year = {2014} }
 	% OPTIONAL
 	%volume= {} ,
@@ -285,7 +289,7 @@ language = {{ger}},
 	%month= {}, 
 	%note= {}, 
 	%isbn= {}
-	%edition= {x. Aufl. Bd. II},% url={http://books.google.de/books?id=Sd6iLujvozkC},
+	%edition= {x. Auflage Bd. II},% url={http://books.google.de/books?id=Sd6iLujvozkC},
 	%publisher = {},
 	
 @BOOK{gwiozda,
@@ -318,13 +322,13 @@ language = {{ger}},
 	%month= {}, 
 	%note= {}, 
 	%isbn= {}
-	%edition= {x. Aufl. Bd. II},
+	%edition= {x. Auflage Bd. II},
 	
 @BOOK{Kretschmar,
 	author = {Stephanie Kretschmar},
 	title = {Elektronische Zahlungssysteme: Grundlagen, Verbreitung, Akzeptanz, Bewertung},
 	publisher = {AV Akademikerverlag GmbH \& Co. KG, Saarbrücken},
-	edition= {neue Aufl.},
+	edition= {neue Auflage},
 	year = {2012} }
 	% OPTIONAL
 	%volume= {} ,
@@ -396,7 +400,7 @@ language = {{ger}},
 	author = {Claudia Eckert},
 	title = {IT-Sicherheit: Konzepte - Verfahren - Protokolle},
 	publisher = {Oldenburg Wissenschaftsverlag GmbH, München},
-	edition= {8. Aufl.},
+	edition= {8. Auflage},
 	year = {2009} }
 	% OPTIONAL
 	%volume= {} ,
@@ -411,7 +415,7 @@ language = {{ger}},
 	author = {Klaus Schmeh},
 	title = {Kryptographie: Verfahren, Protokolle, Infrastrukturen},
 	publisher = {Dpunkt.Verlag GmbH, Heidelberg},
-	edition= {4. Aufl.},
+	edition= {4. Auflage},
 	year = {2012} }
 	% OPTIONAL
 	%volume= {} ,
@@ -426,7 +430,7 @@ language = {{ger}},
 	author = {Felix Mack},
 	title = {IT Sicherheit: Von Gefahren und Abwehrmaßnahmen},
 	publisher = {Vdm Verlag, Saarbrücken},
-	edition= {x. Aufl. Bd. II},
+	edition= {x. Auflage Bd. II},
 	year = {2008} }
 	% OPTIONAL
 	%volume= {} ,
@@ -667,3 +671,219 @@ language = {{ger}},
 	%isbn= {}
 
 % Ende eBusiness----------------------------------------------------------------------------------------------------------------
+
+% Supply Chain Management: Global Sourcing und die Herausforderungen in der Beschaffungslogistik -------------------------------
+
+@BOOK{Poluha2010,
+	author = {Poluha, Rolf G.},
+	year = {2010},
+	title = {Quintessenz des Supply Chain Managements - Was Sie wirklich über Ihre Prozesse in Beschaffung, Fertigung, Lagerung und Logistik wissen müssen},
+	edition = {1. Auflage},
+	publisher = {Springer-Verlag},
+	address = {Berlin Heidelberg New York} }
+
+@BOOK{Werner2008,
+	author = {Werner, Hartmut},
+	title = {Supply Chain Management - Grundlagen, Strategien, Instrumente und Controlling},
+	publisher = {Gabler Verlag},
+	address = {Wiesbaden},
+	edition= {3. Auflage},
+	year = {2008} }
+	
+% BOOK{praxeinkauf,
+%	 author = {Weigel, Ulrich AND Rücker, Marco},
+%	title = {Praxisguide Strategischer Einkauf - Know-How, Tools und Techniken für den globalen Beschaffer},
+%	publisher = {Springer Gabler},
+%	address = {Wiesbaden},
+%	year = {2013} }
+	
+@BOOK{Weigel2013,
+	AUTHOR = {Weigel, Ulrich AND Rücker, Marco},
+	YEAR = {2013},
+	TITLE = {Praxisguide Strategischer Einkauf - Know-how, Tools und Techniken für den globalen Beschaffer},
+	EDITION = {2013. Aufl.},
+	PUBLISHER = {Springer-Verlag},
+	ADDRESS = {Berlin Heidelberg New York} }
+% 	ISBN = {978-3-834-94431-3},
+
+% BOOK{integ,
+%	author = {Wannenwetsch, Helmut},
+%	title = {Integrierte Materialwirtschaft, Logistik und Beschaffung},
+%	publisher = {Springer-Verlag},
+%	address = {Berlin Heidelberg},
+%	edition= {5. Auflage},
+%	year = {2014} }
+
+@incollection{arnolds2013,
+year={2013},
+isbn={978-3-8349-3160-3},
+booktitle={Materialwirtschaft und Einkauf},
+title={Internationale Beschaffung},
+publisher={Springer Fachmedien Wiesbaden},
+author={Arnolds, Hans and Heege, Franz and Tussing, Werner and Röh, Carsten},
+pages={365-404},
+language={German}
+}
+%doi={10.1007/978-3-8349-3742-1_14},
+%url={http://dx.doi.org/10.1007/978-3-8349-3742-1_14},
+	
+@BOOK{Wannenwetsch2014,
+	AUTHOR = {Wannenwetsch, Helmut},
+	YEAR = {2014},
+	TITLE = {Integrierte Materialwirtschaft, Logistik und Beschaffung - },
+	EDITION = {5. Aufl.},
+	PUBLISHER = {Springer-Verlag},
+	ADDRESS = {Berlin Heidelberg New York} }
+%	ISBN = {978-3-642-45023-5},
+
+% BOOK{bestprac,
+%	author = {Bundesverband Materialwirtschaft, Einkauf und Logistik (Hrsg.)},
+%	title = {Best Practice in Einkauf und Logistik},
+%	publisher = {GWV Fachverlag},
+%	address = {Wiesbaden},
+%	edition= {2. Auflage},
+%	year = {2008} }
+
+@BOOK{Materialwirtschaft2009,
+	AUTHOR = {Bundesverband Materialwirtschaft Einkauf und Logistik e.V.},
+	YEAR = {2009},
+	TITLE = {Best Practice in Einkauf und Logistik},
+	EDITION = {2. Aufl.},
+	PUBLISHER = {Springer-Verlag},
+	ADDRESS = {Berlin Heidelberg New York} }
+%	ISBN = {978-3-834-99581-0},
+
+@BOOK{essig2005,
+	author = {Eßig, Michael},
+	title = {Perspektiven des Supply Chain Mangement - Konzepte und Anwendungen},
+	publisher = {Springer-Verlag},
+	address = {Berlin Heidelberg},
+	year = {2005} }
+	
+@BOOK{Hutzschenreuter15,
+	author = {Hutzschenreuter, Thomas},
+	title = {Allgemeine Betriebswirtschaftslehre},
+	publisher = {Springer Fachmedien},
+	address = {Wiesbaden},
+	edition = {6. Auflage},
+	year = {2015} }
+	
+@BOOK{Hess2009,
+	author = {Heß, Gerhard},
+	title = {Supply-Strategien in Einkauf und Beschaffung - Systematischer Ansatz und Praxisfälle},
+	publisher = {Springer-Verlag},
+	address = {Berlin Heidelberg New York},
+	edition = {1. Auflage},
+	year = {2009}}
+
+@BOOK{Dachrodt2014,
+	author = {Dachrodt, Heinz-G. AND Koberski, Wolfgang AND Engelbert, Volker AND Dachrodt, Gunnar},
+	title = {Praxishandbuch Human Resources - Management - Arbeitsrecht - Betriebsverfassung},
+	edition = {1. Auflage},
+	publisher = {Springer-Verlag},
+	address = {Berlin Heidelberg New York},
+	year = {2014}}
+
+@BOOK{Langenscheidt2010,
+	author = {Langenscheidt-Redaktion, Langenscheidt-Redaktion},
+	year = {2010},
+	title = {Universal-Wörterbuch Englisch - },
+	address = {Berlin München},
+	publisher = {Langenscheidt Publishing Grp} }
+	
+@BOOK{Gudehus2015,
+	AUTHOR = {Gudehus, Gudehus},
+	YEAR = {2015},
+	TITLE = {Dynamische Märkte - Grundlagen und Anwendungen der analytischen Ökonomie},
+	EDITION = {2. Aufl.},
+	PUBLISHER = {Springer-Verlag},
+	ADDRESS = {Berlin Heidelberg New York} }
+	%ISBN = {978-3-662-46783-1},
+
+@BOOK{Benedikter2014,
+	AUTHOR = {Benedikter, Roland AND Nowotny, Verena},
+	YEAR = {2014},
+	TITLE = {China - Situation und Perspektiven des neuen weltpolitischen Akteurs},
+	PUBLISHER = {Springer-Verlag},
+	ADDRESS = {Berlin Heidelberg New York} }
+	%ISBN = {978-3-658-01513-8},
+	
+@BOOK{pwc2008,
+	AUTHOR = {o.V.},
+	YEAR = {2008},
+	TITLE = {Beschaffungslogistik im China-Geschäft: Kosten - Prozesse - Strategien},
+	PUBLISHER = {PricewaterhouseCoopers, Bundesverband Materialwirtschaft Einkauf Logistik e.V.},
+	ADDRESS = {Berlin Heidelberg New York} }
+	
+@BOOK{Rimkus2015,
+	AUTHOR = {Rimkus, Manuel},
+	YEAR = {2015},
+	TITLE = {Motivation durch Wissensintermediation - Konzeptionelle Überlegungen und empirische Befunde zur Zusammenarbeit Bayerns mit China},
+	PUBLISHER = {Springer-Verlag},
+	ADDRESS = {Berlin Heidelberg New York} }
+
+@misc{statistaEXPORTa,
+	author = {statista},
+	title = {China: Wachstum des realen Bruttoinlandsprodukts (BIP) von 2005 bis 2015 (gegenüber dem Vorjahr)},
+	year = {2015a} ,
+	url = {http://goo.gl/ZUcXSx},
+	urldate= {2015"~12"~10} }
+
+@misc{statistaEXPORTb,
+	author = {statista},
+	title = {Die 20 größten Exportländer weltweit im Jahr 2014},
+	year = {2015b} ,
+	url = {http://goo.gl/pKRzNu},
+	urldate= {2015"~12"~10} }
+
+	%publisher = {statista},
+	
+
+@ARTICLE{voss2009x,
+	author = {Voss, Peter},
+	title = {Beschaffung in China - Erfahrungen aus der Controlling Perspektive},
+	journal = {Controlling \& Management} ,
+	volume = {53},
+	year = {2009},
+	pages = {100--104} }
+	
+	
+@article{voss2009,
+year={2009},
+issn={1614-1822},
+journal={Controlling \& Management},
+volume={53},
+number={2},
+title={Beschaffung in China},
+publisher={SP Gabler Verlag},
+author={Voss, Peter},
+pages={100-104},
+language={German}
+}
+%url={http://dx.doi.org/10.1007/s12176-009-0036-9},
+%doi={10.1007/s12176-009-0036-9},
+
+@incollection{faust2013,
+year={2013},
+booktitle={China Sourcing},
+editor={Faust, Peter and Yang, Gang},
+title={Praxisbeispiele China Sourcing und Wertschöpfung in China – Kompetenz chinesischer Lieferanten},
+publisher={Springer Berlin Heidelberg},
+author={Faust, Peter and Yang, Gang},
+pages={123-291},
+language={German}
+}
+%doi={10.1007/978-3-658-00452-1_6},	
+%url={http://dx.doi.org/10.1007/978-3-658-00452-1_6},
+%isbn={978-3-658-00451-4},
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
